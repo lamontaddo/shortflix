@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>
+        <h1><%= title %></h1>
+        <p>Welcome to <%= title %></p>
+    </header>
+    <main>
+        <div class="content-wrapper">
+            <!-- Featured Image -->
+            <div class="image-section">
+                <a href="<%= trailer %>" target="_blank">
+                    <img src="<%= image %>" alt="Featured Image" class="featured-image">
+                </a>
+            </div>
+
+            <!-- Side Tabs -->
+            <div class="tabs-section">
+                <div class="tabs">
+                    <button class="tab-link active" data-tab="Cast">Cast</button>
+                    <button class="tab-link" data-tab="Contact">Contact</button>
+                    <button class="tab-link" data-tab="Rating">Rating</button>
+                    <button class="tab-link" data-tab="Comments">Comments</button>
+                </div>
+                <div class="tab-content">
+                    <div id="Cast" class="tab-pane active">
+                        <h2>Cast</h2>
+                        
+                        <ul>
+                            <li>Actor 1 as Character 1</li>
+                            <li>Actor 2 as Character 2</li>
+                        </ul>
+                        
+                    </div>
+                    <div id="Contact" class="tab-pane">
+                        <h2>Contact</h2>
+                        
+                        <p>Email: example@example.com</p>
+                        <p>Phone: (123) 456-7890</p>
+                        <p>facebooklink@facebook.com/director</p>
+                        
+                    </div>
+                    <div id="Rating" class="tab-pane">
+                        <h2>Rating</h2>
+                        
+                       
+                        <p>shorflix rating: 8.6/10</p>
+                        
+                        
+                    </div>
+                    <div id="Comments" class="tab-pane">
+                        <h2>Comments</h2>
+                       
+                        <div class="comment">
+                            <p><strong>User1:</strong> Great movie!</p>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; <%= new Date().getFullYear() %> My Website</p>
+    </footer>
+
+    <!-- JavaScript for Tabs -->
+    <script>
+        const tabLinks = document.querySelectorAll('.tab-link');
+        const tabPanes = document.querySelectorAll('.tab-pane');
+
+        tabLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+
+                // Remove active class from all links and panes
+                tabLinks.forEach(link => link.classList.remove('active'));
+                tabPanes.forEach(pane => pane.classList.remove('active'));
+
+                // Add active class to the clicked link and corresponding pane
+                this.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
